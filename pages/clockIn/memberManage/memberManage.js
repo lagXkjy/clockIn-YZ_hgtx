@@ -38,6 +38,7 @@ Page({
             listData: []
           })
           this.data.pageCount = -1;
+          this.data.pageIndex = 1;
           this.getData()
         } else {
           $common.showModal('未知错误');
