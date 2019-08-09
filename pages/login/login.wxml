@@ -1,0 +1,11 @@
+<!-- pages/login/login.wxml -->
+<view wx:if='{{!isGetInfo}}' class="wrapper"></view>
+<view wx:else class="wrapper">
+    <image class="bg-image" mode="aspectFill" src="{{bgImage}}" />
+    <view class="continue">
+        <button bindgetuserinfo='getUserInfo' open-type="getUserInfo" class='login'>
+            <image class='wechat block' mode='widthFix' src="/images/wechat.png" />
+            <text>微信授权</text>
+        </button>
+    </view>
+</view>

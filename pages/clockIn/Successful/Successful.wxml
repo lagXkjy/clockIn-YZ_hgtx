@@ -1,0 +1,7 @@
+<!--pages/clockIn/Successful/Successful.wxml-->
+<view class='box'>
+  <image src='/images/Successful.png'></image>
+  <view class='succsee'>订单提交成功</view>
+  <view class='alick'>了解订单详情请点击【查看订单】按钮</view>
+  <view class='button' bindtap='seeorder'>查看订单</view>
+</view>

@@ -1,0 +1,27 @@
+<!--pages/clockIn/Purchase/Purchase.wxml-->
+<wxs src='../../../utils/filter.wxs' module='filter' />
+<image class='banner' mode='widthFix' src='/images/pause.png'></image>
+<view class='titlebox'>
+  <view class='title'>行针练习十次</view>
+  <view class='pop'>
+    <text>￥123</text>
+    <text>45人参加</text>
+  </view>
+</view>
+<view class='details'>
+  <view wx:for='{{info.infoArr}}' wx:key='{{index}}' class='activity'>
+    <view wx:if='{{item.text}}' class='activity-text'>
+      <text>{{filter.decodeUrlComponent(item.text)}}</text>
+    </view>
+    <!-- 图片 -->
+    <view wx:if='{{item.image.length > 0}}' class='activity-image-box margin-t-30'>
+      <image wx:for='{{item.image}}' wx:for-item='items' wx:for-index='indexs' wx:key='{{indexs}}' src='{{srcClockInImage + items}}' bindtap='checkImage' data-index='{{index}}' data-indexs='{{indexs}}' mode='widthFix' class='activity-image'></image>
+    </view>
+    <!-- 音频 -->
+    <music wx:if='{{item.audio}}' path='{{srcClockInAudio + item.audio}}' class='activity-music margin-t-30'></music>
+    <!-- 视频 -->
+    <video wx:if='{{item.video}}' cusom-cache="{{false}}" src='{{srcClockInVideo + item.video}}' class='activity-video margin-t-30'></video>
+  </view>
+</view>
+<button class='botton' bindtap='Purchase'>购买此活动</button>
+<!-- <button class='botton'>申请此活动</button> -->

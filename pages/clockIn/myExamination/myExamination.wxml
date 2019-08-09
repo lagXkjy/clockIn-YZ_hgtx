@@ -1,0 +1,25 @@
+<!--pages/clockIn/myExamination/myExamination.wxml-->
+<view>
+  <view class='conent' wx:for='{{listData}}' wx:key="{{index}}">
+    <view class='img'>
+      <image mode='aspectFit' src='{{img+item.UasListChart}}'></image>
+    </view>
+    <view class='content_text'>
+      <view class='content_title'>{{item.UasTpName}}</view>
+      <view class='text'>{{item.UasBriefIntroduction}}</view>
+      <view class='flex'>
+        <view class='Score'>
+          <text>得分：{{item.UasUserTotalScore}}</text>
+          <text>考试时长：{{item.ExaminationTime}}分钟</text>
+        </view>
+        <view class='button' bindtap='Answer' data-UasId='{{item.UasId}}' data-title='{{item.UasTpName}}'>查看答卷</view>
+      </view>
+    </view>
+  </view>
+</view>
+<view wx:if='{{listData.length<1}}' class='no_ranking'>
+  <view>
+    <image src='/images/No_diary.png'></image>
+  </view>
+  暂无考试记录
+</view>

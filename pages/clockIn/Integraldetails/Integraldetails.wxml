@@ -1,0 +1,28 @@
+<!--pages/clockIn/Integraldetails/Integraldetails.wxml-->
+<import src="../../../wxParse/wxParse.wxml"/>
+<view style='height:{{Hei}}'>
+  <swiper class='u-wrp-bnr' indicator-dots='true' autoplay='true' interval='5000' duration='1000' circular='true'>
+    <block wx:for="{{listData.IcMasterMap}}" wx:key='{{index}}' wx:for-index="index">
+      <swiper-item>
+        <image src='{{srcImg+item}}' class='u-img-slide' mode='widthFix' bindload='imgH'></image>
+      </swiper-item>
+    </block>
+  </swiper>
+</view>
+<view class='titlebox'>
+  <view class='title'>{{listData.IcName}}</view>
+  <view class='money'>
+    <text>{{listData.IcIntegral}}积分</text>
+    <text>￥{{listData.IcMarketPrice}}</text>
+  </view>
+</view>
+<view class='details'>
+  <view class='Header'>
+   <text>商品详情</text> 
+  </view>
+  <view class='content'>
+    
+    <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+  </view>
+</view>
+<view class='footer' bindtap='acknowledgement'>立即兑换</view>

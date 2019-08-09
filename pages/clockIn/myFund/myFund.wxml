@@ -1,0 +1,20 @@
+<!--pages/clockIn/myFund/myFund.wxml-->
+<view>
+    <view class='content' wx:for='{{listData}}' wx:key='{{index}}'>
+        <view class='text'>
+          <view class='Study'>[学习基金]{{item.LfrName}}</view>
+          <view>
+            <text class='money'>￥{{item.LfrCashWithdrawal}}</text>
+            <text class='time'>{{item.timer}}</text>
+          </view>
+        </view>
+        <view wx:if='{{item.LfrIsReceive==0}}' class='button' data-LfrId='{{item.LfrId}}' bindtap='withdrawal'>提现</view>
+        <view wx:else class='button active'>已提现</view>
+    </view>
+</view>
+<view wx:if='{{listData.length<1}}' class='no_ranking'>
+  <view>
+    <image src='/images/No_diary.png'></image>
+  </view>
+  暂无学习基金
+</view>

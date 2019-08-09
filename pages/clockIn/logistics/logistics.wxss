@@ -1,0 +1,55 @@
+/* pages/clockIn/logistics/logistics.wxss */
+page{
+  font-size: 25rpx;
+}
+.outer{
+  background-color: #fff;
+  margin-bottom: 20rpx;
+}
+.bttom,.outer{
+  padding-left: 20rpx;
+}
+.huise{
+  color:#b2b2b2;
+}
+.outer-top{
+  height: 50rpx;
+  line-height: 50rpx;
+}
+.bottom-content{
+  padding-top: 30rpx;
+  font-size: 25rpx;
+}
+.xiana{
+  border-bottom: 1px solid #e3e3e3;
+  flex: 1;
+  padding-bottom: 30rpx;
+}
+.dian{
+  border-radius: 50%;
+  height: 15rpx;
+  width: 15rpx;
+  background-color: #b2b2b2;
+  margin-top: 10rpx;
+  margin-right: 20rpx;
+}
+.bttom .bottom-content:first-child .dian{
+  height: 15rpx;
+  width: 15rpx;
+  background-color: #b5000e;
+  margin-top: 10rpx;
+}
+.bttom .bottom-content:first-child .hongse{
+  color:#b5000e;
+}
+.bttom .bottom-content:first-child .hongse .huise{
+  color:#b5000e;
+}
+.bttom .bottom-content:last-child .xiana{
+  border:0;
+}
+.no{
+  color: #171717;
+  text-align: center;
+  margin-top:30rpx;
+}

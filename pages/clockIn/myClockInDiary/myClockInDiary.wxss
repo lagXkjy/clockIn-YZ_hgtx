@@ -1,0 +1,24 @@
+/* pages/clockIn/myClockInDiary/myClockInDiary.wxss */
+
+diary-list {
+  margin-bottom: 20rpx;
+  display: block;
+}
+.no_ranking {
+  padding: 30rpx;
+  font-size: 30rpx;
+  text-align: center;
+  color: #000;
+  box-sizing: border-box;
+}
+.no_ranking view{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 47rpx;
+  box-sizing: border-box;
+}
+.no_ranking view image {
+  width: 192rpx;
+  height: 215rpx;
+}

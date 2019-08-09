@@ -1,0 +1,86 @@
+{
+  "pages": [
+    "pages/login/login",
+    "pages/clockIn/IntegralMall/IntegralMall",
+    "pages/clockIn/logistics/logistics",
+    "pages/clockIn/IntegralOrderDetails/IntegralOrderDetails",
+    "pages/clockIn/Successful/Successful",
+    "pages/clockIn/acknowledgement/acknowledgement",
+    "pages/clockIn/Integraldetails/Integraldetails",
+    "pages/clockIn/clockIn/clockIn",
+    "pages/clockIn/questions/questions",
+    "pages/clockIn/Examination/Examination",
+    "pages/clockIn/SignIn/SignIn",
+    "pages/clockIn/Purchase/Purchase",
+    "pages/clockIn/memberManage/memberManage",
+    "pages/clockIn/createNew/createNew",
+    "pages/clockIn/createNewTheme/createNewTheme",
+    "pages/clockIn/checkAllTheme/checkAllTheme",
+    "pages/clockIn/dataManage/dataManage",
+    "pages/clockIn/manageTheme/manageTheme",
+    "pages/clockIn/themeDetails/themeDetails",
+    "pages/clockIn/details/details",
+    "pages/clockIn/cutOut/cutOut",
+    "pages/clockIn/myClockInDiary/myClockInDiary",
+    "pages/clockIn/publishDiary/publishDiary",
+    "pages/clockIn/comment/comment",
+    "pages/clockIn/thisRecord/thisRecord",
+    "pages/New/index/index",
+    "pages/clockIn/payment/payment",
+    "pages/clockIn/Completion/Completion",
+    "pages/clockIn/myExamination/myExamination",
+    "pages/clockIn/myFund/myFund",
+    "pages/clockIn/Answer/Answer"
+  ],
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "navigationBarBackgroundColor": "#000",
+    "navigationBarTitleText": "海格通信打卡",
+    "navigationBarTextStyle": "white",
+    "enablePullDownRefresh": true,
+    "backgroundTextStyle": "light"
+  },
+  "tabBar": {
+    "color": "#848383",
+    "selectedColor": "#7c99d0",
+    "backgroundColor": "#fff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/clockIn/clockIn/clockIn",
+        "text": "打卡",
+        "iconPath": "/images/clock2.png",
+        "selectedIconPath": "/images/clock1.png"
+      },
+      {
+        "pagePath": "pages/clockIn/SignIn/SignIn",
+        "text": "签到",
+        "iconPath": "/images/signin.png",
+        "selectedIconPath": "/images/sign1.png"
+      },
+      {
+        "pagePath": "pages/clockIn/Examination/Examination",
+        "text": "考试",
+        "iconPath": "/images/Examination.png",
+        "selectedIconPath": "/images/Examination1.png"
+      },
+      {
+        "pagePath": "pages/New/index/index",
+        "text": "我的",
+        "iconPath": "/images/TE_13.png",
+        "selectedIconPath": "/images/KAN_13.png"
+      }
+    ]
+  },
+  "usingComponents": {
+    "search": "/component/search/search",
+    "publish": "/component/publish/publish",
+    "add-score": "/component/addScore/addScore",
+    "modular-title": "/component/modularTitle/modularTitle",
+    "diary-list": "/component/diaryList/diaryList",
+    "poster": "/component/poster/poster",
+    "music": "/component/music/music",
+    "ExaminationTips": "component/ExaminationTips/ExaminationTips"
+  },
+  "sitemapLocation": "sitemap.json"
+}

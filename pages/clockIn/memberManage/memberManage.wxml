@@ -1,0 +1,47 @@
+<view class='tabbox' wx:if='{{ActivityPattern==2}}'>
+  <view bindtap='active' data-index='0' class='{{activeindex==0?"active":""}}'>待审核</view>
+  <view bindtap='active' data-index='1' class='{{activeindex==1?"active":""}}'>已通过</view>
+</view>
+<view>
+  <search bindsearchInput='inputchange' placeholder='搜索成员'></search>
+  <view class='box'>
+    <block wx:for='{{listData}}' wx:key='Id'>
+      <view class='list'>
+        <view class='left'>
+          <image mode='widthFix' src='{{item.UserAvaUrl}}' class='image'></image>
+          <view class='info'>
+            <view class='name'>{{item.UserNickName}}<text class='namePhone' wx:if='{{activeindex==0}}'>/{{item.Name}} {{item.Phone}}</text>
+              </view>
+            <view class='time'>{{item.showTime}}</view>
+          </view>
+        </view>
+        <view wx:if='{{ActivityPattern==2}}' bindtap='UpdateUserApplyState' data-index='{{index}}' class='submit {{activeindex==1?"submitright":""}}'>
+          {{activeindex==0?'同意申请':'取消通过'}}
+        </view>
+        <view wx:if='{{activeindex==1}}' bindtap='changeAuthority' data-index='{{index}}' class='submit'>
+          {{item.SmallCardLimit ? "取消限制" : "限制发表"}}
+        </view>
+      </view>
+    </block>
+  </view>
+</view>
+<!-- 已通过 -->
+<!-- <view wx:if='{{activeindex==1}}'>
+  <search bindsearchInput='{{activeindex==1?"inputchange":"activeinput"}}' placeholder='搜索成员'></search>
+  <view class='box'>
+    <block wx:for='{{listData}}' wx:key='Id'>
+      <view class='list'>
+        <view class='left'>
+          <image mode='widthFix' src='{{item.UserAvaUrl}}' class='image'></image>
+          <view class='info'>
+            <view class='name'>{{item.UserNickName}}</view>
+            <view class='time'>{{item.showTime}}</view>
+          </view>
+        </view>
+        
+      </view>
+    </block>
+  </view>
+</view> -->
+
+<view wx:if='{{listData.length<=0}}' class='noData'>暂无成员</view>

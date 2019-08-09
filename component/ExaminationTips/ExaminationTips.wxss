@@ -1,0 +1,40 @@
+/* component/ExaminationTips/ExaminationTips.wxss */
+.box{
+  width: 670rpx;
+  height: 900rpx;
+  background: #fff;
+  border-radius: 40rpx;
+  padding: 60rpx 55rpx;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content:space-between;
+  margin: 0 auto;
+}
+.title{
+  font-size: 37rpx;
+  text-align: center;
+  font-weight: bold;
+  /* margin-bottom: 30rpx; */
+}
+.content{
+  flex: 1;
+}
+.content_li{
+  display: block;
+  font-size: 30rpx;
+  color: #6d6d6d;
+  margin-top: 30rpx;
+  line-height:45rpx;
+}
+.start{
+  width: 400rpx;
+  padding: 20rpx 125rpx;
+  align-self:center;
+  box-sizing: border-box;
+  background: #7c99d0;
+  color: #fff;
+  border-radius: 10rpx;
+  font-size: 37rpx;
+  text-align:center;
+}

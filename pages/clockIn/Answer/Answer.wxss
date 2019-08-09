@@ -1,0 +1,126 @@
+/* pages/clockIn/Answer/Answer.wxss */
+page{
+  background: #fff;
+}
+.number_top{
+  height: 100rpx;
+  padding: 0 30rpx;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  border-bottom: 8rpx solid #f2f2f2;
+}
+.number{
+  font-size: 30rpx;
+  margin-right: 35rpx;
+}
+.number>text{
+  font-size: 37rpx;
+  font-weight: bold;
+}
+.Answer{
+  font-size: 32rpx;
+}
+.Answer>text{
+  margin-left: 45rpx;
+  color: #595757;
+}
+.green{
+  font-weight: bold;
+  color: #53a77c;
+}
+.blue{
+  font-weight: bold;
+  color: #7c99d0;
+}
+.topic{
+  padding: 45rpx 30rpx;
+  box-sizing: border-box;
+  background: #fff;
+}
+.topic_title{
+  display: flex;
+  font-size: 37rpx;
+  font-weight: bold;
+  margin-bottom: 30rpx;
+}
+.wrap{
+ width: 550rpx;
+ margin: 50rpx auto
+}
+  
+.checkbox-con{
+ margin-top: 40rpx;
+ text-align: center
+}
+.checkbox{
+ /* width: 260rpx; */
+ /* height: 72rpx; */
+ /* line-height: 72rpx; */
+ font-size: 32rpx;
+ color: #000;
+ border: 1rpx solid #d6d6d6;
+ display: block;
+ margin: 0 10rpx 20rpx 0;
+ position: relative;
+ padding: 30rpx;
+ box-sizing: border-box;
+ border-radius: 10rpx;
+ padding-right:35px;
+}
+.checked{
+ color: #1A92EC;
+ background: rgba(49,165,253,0.08);
+ border: 1rpx solid #31A5FD;
+}
+.checkbox checkbox{
+ display: none
+}
+.checked-img{
+ width: 28rpx;
+ height: 28rpx;
+ position: absolute;
+ top: 0;
+ right: 0
+}
+.circular{
+  width: 32rpx;
+  height: 32rpx;
+  border: 4rpx solid #7c99d0;
+  box-sizing: border-box;
+  border-radius: 50%;
+  position: absolute;
+  right: 30rpx;
+  top: 33%;
+}
+.active{
+  background: #7c99d0
+}
+
+
+
+.footer{
+  position: fixed;
+  bottom: 50rpx;
+  width: 100%;
+  padding: 0 30rpx;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+}
+.footer>view{
+  width: 50%;
+  color: #fff;
+  background: #7c99d0;
+  padding: 25rpx 0;
+  text-align: center;
+  box-sizing: border-box;
+  font-size: 32rpx;
+  border-radius: 10rpx;
+  flex: 1;
+}
+.footer>view:nth-child(1){
+  margin-right: 30rpx;
+}

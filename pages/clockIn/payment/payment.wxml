@@ -1,0 +1,29 @@
+<!--pages/clockIn/payment/payment.wxml-->
+<view class='box'>
+  <view class='con'>
+    <view class='img'>
+      <image src='{{srcImg+ActivityHeadImage}}'></image>
+    </view>
+    <view class='introduce'>
+      {{ActivityName}}
+    </view>
+  </view>
+  <view class='money' wx:if='{{ActivityPattern==1}}'>￥{{ActivityPrice}}</view>
+</view>
+<view class='inputbox'>
+  <view>
+    <label>姓名：</label>
+    <input placeholder='请输入姓名' bindinput='name' value='{{name}}'></input>
+  </view>
+  <view>
+    <label>手机：</label>
+    <input placeholder='请输入手机号' type='number' maxlength='11' bindinput='phone' value='{{phone}}'></input>
+  </view>
+</view>
+<view class='footer' wx:if='{{ActivityPattern==1}}'>
+  <view>支付金额 <text>￥{{ActivityPrice}}</text></view>
+  <view bindtap='payment'>提交订单</view>
+</view>
+<view class='footer' bindtap='Apply' wx:if='{{ActivityPattern==2}}'>
+  提交活动申请
+</view>

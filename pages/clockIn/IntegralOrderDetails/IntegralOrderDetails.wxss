@@ -1,0 +1,82 @@
+/* pages/clockIn/IntegralOrderDetails/IntegralOrderDetails.wxss */
+.box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx 30rpx;
+  font-size: 30rpx;
+  background: #fff;
+  border-bottom: 1rpx solid #e6e6e6;
+}
+
+.con {
+  display: flex;
+  align-items: center;
+}
+
+.img {
+  width: 200rpx;
+  height: 200rpx;
+}
+
+.img>image {
+  width: 100%;
+  height: 100%;
+}
+
+.money {
+  font-size: 36rpx;
+  color: #eb504c;
+  font-weight: bold;
+}
+.introbox{
+  height: 180rpx;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: 30rpx;
+}
+.introduce {
+  /* margin: 0 20rpx; */
+  font-size: 30rpx;
+}
+.content{
+  background: #fff;
+  margin-top: 20rpx;
+  padding: 0 30rpx;
+  box-sizing: border-box;
+  border-top: 1rpx solid #e6e6e6;
+  border-bottom: 1rpx solid #e6e6e6;
+}
+.title{
+  color: #171717;
+}
+.text{
+  color: #555454;
+}
+.content>view{
+  font-size: 24rpx;
+  /* font-weight: bold; */
+  margin: 30rpx 0;
+}
+.name{
+  font-size: 24rpx;
+  color: #171717;
+}
+.name>text:first-child{
+  margin-right: 20rpx;
+}
+.logistics{
+  font-size: 24rpx;
+  color: #171717;
+  background: #fff;
+  padding: 30rpx;
+  border-bottom: 1rpx solid #e6e6e6;
+  display: flex;
+  justify-content: space-between
+}
+.logistics>image{
+  width: 21rpx;
+  height: 34rpx;
+}

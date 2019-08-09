@@ -1,0 +1,10 @@
+function parseint(num) {  //外教列表页展示整数
+  return parseInt(num);
+}
+function decodeUrlComponent(text) { //text解码，解决文字不显示Emoji表情不显示问题
+  return decodeURIComponent(text);
+}
+module.exports = {
+  parseint: parseint,
+  decodeUrlComponent: decodeUrlComponent
+};

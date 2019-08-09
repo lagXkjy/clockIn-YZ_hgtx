@@ -1,0 +1,39 @@
+/* pages/clockIn/Successful/Successful.wxss */
+page{
+  background: #fff;
+}
+.box{
+  width: 100%;
+  padding-top: 90rpx;
+}
+image{
+  margin: 0 auto;
+  width: 240rpx;
+  height: 240rpx;
+  display:block;
+  margin-bottom: 60rpx;
+}
+.succsee{
+  color: #5a5a5a;
+  font-size: 48rpx;
+  font-weight: bold;
+  margin: 30rpx 0;
+  text-align: center;
+}
+.alick{
+  color: #5a5a5a;
+  font-size: 30rpx;
+  text-align: center;
+}
+.button{
+  width: 562rpx;
+  height: 85rpx;
+  text-align: center;
+  line-height: 85rpx;
+  border-radius: 10rpx;
+  margin: 0 auto;
+  background: #7c99d0;
+  color: #fff;
+  font-size: 40rpx;
+  margin-top: 370rpx;
+}

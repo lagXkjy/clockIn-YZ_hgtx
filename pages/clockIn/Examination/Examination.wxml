@@ -1,0 +1,19 @@
+<!--pages/clockIn/Examination/Examination.wxml-->
+<view wx:if='{{listData.length>=1}}'>
+  <view class='conent' wx:for='{{listData}}' wx:key='{{index}}'>
+    <view class='img'>
+      <image mode='aspectFit' src='{{img+item.TpListChart}}'></image>
+    </view>
+    <view class='content_text'>
+        <view class='content_title'>{{item.TpName}}</view>
+        <view class='text'>{{item.TpBriefIntroduction}}</view>
+        <view class='button' bindtap='participate' data-TpExplain='{{item.TpExplain}}' data-title='{{item.TpName}}' data-TpId='{{item.TpId}}'>参加考试</view>
+    </view>
+  </view>
+</view>
+<view wx:else class='no_ranking'>
+  <view>
+    <image src='/images/No_diary.png'></image>
+  </view>
+  暂无考试
+</view>

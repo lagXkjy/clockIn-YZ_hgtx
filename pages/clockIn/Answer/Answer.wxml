@@ -1,0 +1,31 @@
+<!--pages/clockIn/Answer/Answer.wxml-->
+<view style='margin-bottom:100rpx;'>
+  <view class='number_top'>
+    <view class='number'>
+      <text>{{subscript+1}}</text>/{{listData.length}}
+    </view>
+    <view class='Answer'>
+      <text>正确答案：<text class='green'>{{listData[subscript].UascRightKey}}</text></text>
+      <text>你的答案：<text class='blue'>{{listData[subscript].UascUserAnswer}}</text></text>
+    </view>
+  </view>
+  <view class='topic'>
+    <block wx:key='{{index}}'>
+      <view class='topic_title'>
+        <view>{{subscript+1}}.</view>
+        <view>
+          {{listData[subscript].UascName}}{{listData[subscript].UascType==1?'（单选）':listData[subscript].UascType==2?'（多选）':'（判断）'}}</view>
+      </view>
+      <checkbox-group bindchange="checkboxChange">
+        <label class="checkbox" wx:for="{{listData[subscript].UascOptions}}" wx:for-item="items" bindtap='checkbox' data-index="{{index}}" wx:key="items.name">
+          <checkbox value="{{items.option+'、'+items.content}}" checked="{{items.checked}}" />{{items.option+'、'+items.content}}
+          <!-- <view class=" circular {{items.checked?'active':''}}"></view> -->
+        </label>
+      </checkbox-group>
+    </block>
+  </view>
+</view>
+<view class='footer'>
+  <view bindtap='previous' wx:if='{{subscript!=0}}'>上一题</view>
+  <view bindtap='Next' wx:if='{{subscript!=listData.length-1}}'>下一题</view>
+</view>

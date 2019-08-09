@@ -1,0 +1,4 @@
+<!-- pages/clockIn/thisRecord/thisRecord.wxml -->
+<diary-list binddeleteDiary='deleteDiary' GetMyAvaName='{{GetMyAvaName}}' wx:for='{{listData}}' wx:key='{{index}}' obj='{{item}}' data-index='{{index}}'></diary-list>
+<view class='prompt'>快来发布你的评论吧</view>
+<add-score score-type='{{scoreType}}' score-num='{{scoreNum}}'></add-score>

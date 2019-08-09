@@ -1,0 +1,38 @@
+<!--pages/clockIn/IntegralOrderDetails/IntegralOrderDetails.wxml-->
+<view class='box'>
+  <view class='con'>
+    <view class='img'>
+      <image src='{{srcImg+orderdata.IoIcMasterMap}}'></image>
+    </view>
+  </view>
+   <view class='introbox'>
+      <view class='introduce'>
+        {{orderdata.IoIcName}}
+      </view>
+      <view class='money'>{{orderdata.IoIcIntegral}}积分</view>
+    </view>
+</view>
+<view class='content'>
+  <view>
+    <text class='title'>订单编号:</text><text class='text'>{{orderdata.IoOrderSN}}</text>
+  </view>
+  <view>
+    <text class='title'>下单时间:</text><text class='text'>{{orderdata.IoPurchaseTime}}</text>
+  </view>
+  <view>
+    <text class='title'>商品类型:</text><text class='text'>{{orderdata.IoIcCommodityType==0?'实物商品':'虚拟商品'}}</text>
+  </view>
+  <view>
+    <text class='title'>姓名:</text><text class='text'>{{orderdata.IoPurchaseName}}</text>
+  </view>
+  <view>
+    <text class='title'>手机号:</text><text class='text'>{{orderdata.IoPurchasePhone}}</text>
+  </view>
+  <view wx:if='{{orderdata.IoIcCommodityType==0}}'>
+    <text class='title'>地址：</text><text class='text'>{{orderdata.IoReceivingAddress}}</text>
+  </view>
+</view>
+<view class='logistics' bindtap='logistics' wx:if='{{orderdata.IoIcCommodityType==0}}'>
+   <view>查看物流</view>
+   <image src='/images/jian_13.png'></image>
+  </view>

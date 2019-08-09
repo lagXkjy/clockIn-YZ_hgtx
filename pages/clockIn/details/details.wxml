@@ -1,0 +1,191 @@
+<wxs src='../../../utils/filter.wxs' module='filter' />
+<block wx:if='{{Jurisdiction}}'>
+  <view class='header'>
+    <image mode='widthFix' class='header-bg-image' src='/images/bg-all_02.jpg'></image>
+    <view class='header-box'>
+      <view class='header-content'>
+        <image class='header-image' mode='aspectFill' src='{{srcClockInImage + themeInfo.ActivityHeadImage}}'></image>
+        <view class='header-context'>
+          <view class='header-name'>{{themeInfo.ActivityName}}</view>
+          <view class='header-num'>{{themeInfo.CanYu}}人已参加 | {{themeInfo.DaKa}}次打卡</view>
+          <view class='header-info'>
+            <image class='header-info-image' src='{{themeInfo.TeaIDPhoto ? srcForIdPhoto + themeInfo.TeaIDPhoto : themeInfo.UserAvaUrl}}'></image>
+            <text>{{themeInfo.TeaName}}</text>
+          </view>
+        </view>
+      </view>
+      <view wx:if='{{isAdministrator}}' bindtap='toDataManage' class='header-btn'>
+        <image mode='widthFix' class='header-btn-image' src='/images/select.png'></image>
+        <text>管理后台</text>
+        <view class='header-btn-mc'></view>
+      </view>
+    </view>
+  </view>
+  <view wx:if='{{isAdministrator && !themeInfo.ThemeId}}' class='box add-theme'>
+    <view bindtap='toCreateNewTheme' class='add-theme-btn'>
+      <text class='add-theme-add'>+</text> 添加打卡主题
+    </view>
+    <view class='theme-what'>打卡主题是管理员与用户分享的各类教学课程</view>
+  </view>
+  <view wx:if='{{themeInfo.ThemeId}}' class='theme-box'>
+    <view class='theme'>
+      <view class='theme-header'>
+        <view class='theme-left'>
+          <image mode='widthFix' class='theme-left-image' src='/images/checkPoint.png'></image>
+          <text class="theme-left-text">{{themeInfo.ActivityType === 2 ? "最新关卡" : "最新主题"}}</text>
+          <!-- <text wx:if='{{isAdministrator == 1}}' wx:else>{{themeInfo.ActivityType === 2 ? "今日关卡" : "今日主题"}}</text> -->
+          <text class='theme-left-g'>|</text>
+          <!-- 管理员进来有MaxCheckpoint  其他人进来没有 -->
+          <text wx:if='{{themeInfo.MaxCheckpoint}}' class="theme-left-text">
+          {{themeInfo.ActivityType === 2 ? "第" + themeInfo.MaxCheckpoint + "关" : themeInfo.showTime}}
+        </text>
+          <text wx:else class="theme-left-text">
+          {{themeInfo.ActivityType === 2 ? "第" + themeInfo.Checkpoint + "关" : themeInfo.showTime}}
+        </text>
+          <!-- <text wx:if='{{isAdministrator == 1}}' wx:else>{{themeInfo.ActivityType === 2 ? "第" + themeInfo.Checkpoint + "关" : themeInfo.showTime}}</text> -->
+        </view>
+        <view bindtap='toCheckAllTheme' class='theme-alltheme'>
+          <text wx:if='{{themeInfo.ActivityType == 2}}'>全部关卡({{themeInfo.ThemSun}}) ></text>
+          <text wx:else>全部主题({{themeInfo.ThemSun}}) ></text>
+        </view>
+      </view>
+      <view class='theme-title'>{{themeInfo.ThmemeName}}</view>
+      <image mode='widthFix' class='theme-image' src='{{srcClockInImage + themeInfo.ThemeHeadImg}}'></image>
+      <view class='theme-btn-box'>
+        <view wx:if='{{isAdministrator}}' bindtap='reviseTheme' class='theme-btn'>去编辑</view>
+        <view wx:if='{{themeInfo.IsCompleted && !isAdministrator}}' bindtap='toPublishDiary' class='theme-btn'>
+          去打卡
+        </view>
+        <view wx:if='{{!themeInfo.IsCompleted && !isAdministrator}}' class='theme-btn'>已打卡</view>
+      </view>
+    </view>
+  </view>
+  <view class='box tab'>
+    <view bindtap='tabChange' data-index='0' class='tab-list {{tabIndex === 0 && "tab-list-select"}}'>
+      日记
+    </view>
+    <view bindtap='tabChange' data-index='1' class='tab-list {{tabIndex === 1 && "tab-list-select"}}'>
+      详情
+    </view>
+    <view bindtap='tabChange' data-index='2' class='tab-list {{tabIndex === 2 && "tab-list-select"}}'>
+      排名
+    </view>
+  </view>
+  <!-- 日记 -->
+  <view hidden='{{tabIndex !== 0}}' class='diary'>
+    <view wx:if='{{dirayList==""}}' class='no_ranking'>
+      <view>
+        <image src='/images/No_diary.png'></image>
+      </view>
+      暂无打卡日记
+    </view>
+    <diary-list is-administrator='{{isAdministrator}}' binddeleteDiary='deleteDiary' bindsyncComment='syncComment' bindsyncPraiseData='syncPraiseData' bindcheckImage='checkImage' wx:for='{{dirayList}}' data-index='{{index}}' obj='{{item}}' activity-id='{{ActivityID}}' wx:key='Id' is-check='{{true}} ' GetMyAvaName='{{GetMyAvaName}}'></diary-list>
+  </view>
+  <!-- 详情 -->
+  <view hidden='{{tabIndex !== 1}}' class='details'>
+    <view class='raking-me'>
+      <view class='raking-me-left'>活动详情</view>
+    </view>
+    <view wx:for='{{info.infoArr}}' wx:key='{{index}}' class='activity'>
+      <view wx:if='{{item.text}}' class='activity-text'>
+        <text>{{filter.decodeUrlComponent(item.text)}}</text>
+      </view>
+      <!-- 图片 -->
+      <view wx:if='{{item.image.length > 0}}' class='activity-image-box margin-t-30'>
+        <image wx:for='{{item.image}}' wx:for-item='items' wx:for-index='indexs' wx:key='{{indexs}}' src='{{srcClockInImage + items}}' bindtap='checkImage' data-index='{{index}}' data-indexs='{{indexs}}' mode='widthFix' class='activity-image'></image>
+      </view>
+      <!-- 音频 -->
+      <music wx:if='{{item.audio}}' path='{{srcClockInAudio + item.audio}}' class='activity-music margin-t-30'></music>
+      <!-- 视频 -->
+      <video wx:if='{{item.video}}' cusom-cache="{{false}}" src='{{srcClockInVideo + item.video}}' class='activity-video margin-t-30'></video>
+    </view>
+  </view>
+  <!-- 排名 -->
+  <view hidden='{{tabIndex !== 2}}' class='raking'>
+    <view class='raking-prompt'>
+      积分规则：每天打卡+{{rakingInfo.SmallCardRulesMode.SmallCardIntegral}}分，点赞+{{rakingInfo.SmallCardRulesMode.FabulousIntegral}}分[单日上限为{{rakingInfo.SmallCardRulesMode.FabulousUpperLimit}}分]，评论+{{rakingInfo.SmallCardRulesMode.CommentIntegral}}分[单日上限为{{rakingInfo.SmallCardRulesMode.CommentUpperLimit}}分]，分享成功+{{rakingInfo.SmallCardRulesMode.ShareIntegral}}分[单日上限为{{rakingInfo.SmallCardRulesMode.ShareUpperLimit}}分]
+    </view>
+    <view wx:if='{{rakingList==""}}' class='no_ranking'>
+      <view>
+        <image src='/images/No_ranking.png'></image>
+      </view>
+      暂无打卡排名
+    </view>
+    <view wx:if='{{rakingInfo.CurrentUser}}' class='raking-me'>
+      <view class='raking-me-left'>
+        <text> 我的排名：第</text>
+        <text class='raking-me-raking'>{{rakingInfo.CurrentUser.piaming}}</text>
+        <text>名</text>
+      </view>
+      <text>{{rakingInfo.CurrentUser.jifen}}分</text>
+    </view>
+    <view class='raking-box'>
+      <block wx:for='{{rakingList}}' wx:key='SmallCardUserID'>
+        <view class='raking-list'>
+          <view class='raking-left'>
+            <view class='raking-raking'>
+              <image wx:if='{{index < 3}}' mode='widthFix' src='/images/medal{{index}}.png'></image>
+              <text wx:else>{{index + 1}}</text>
+            </view>
+            <image class='raking-image' mode='widthFix' src='{{item.UserAvaUrl}}'></image>
+            <view class='raking-context'>
+              <view class='raking-name'>{{item.UserNickName}}</view>
+              <view class='raking-day'>坚持打卡{{item.daka}}天|连续打卡{{item.ContinuityCardDays}}天</view>
+            </view>
+          </view>
+          <text class='raking-score'>{{item.jifen}}分</text>
+        </view>
+      </block>
+    </view>
+  </view>
+  <view class='height'>
+
+  </view>
+  <!-- 邀请 -->
+  <view wx:if='{{isNewCreate}}' class='invite'>
+    <view class='invite-box'>
+      <view class='invite-header'>
+        <view class='invite-wish'>恭喜你开启打卡</view>
+        <view class='invite-go'>去邀请好友一起坚持打卡吧</view>
+      </view>
+      <view class='invite-footer'>
+        <button bindtap='inviteCancel' class='invite-no invite-btn'>待会邀请</button>
+        <button bindtap='inviteCancel' data-share='{{true}}' open-type='share' class='invite-yes invite-btn'>
+          立即邀请
+        </button>
+      </view>
+    </view>
+  </view>
+  <!-- 海报 -->
+  <poster poster-data='{{posterData}}'></poster>
+  <add-score score-type='{{scoreType}}' score-num='{{scoreNum}}'></add-score>
+</block>
+<!-- 购买或申请 -->
+<block wx:else>
+  <image class='banner' mode='widthFix' src='{{srcClockInImage+PaymentInfo.ActivityHeadImage}}'></image>
+  <view class='titlebox'>
+    <view class='title'>{{PaymentInfo.ActivityName}}</view>
+    <view class='pop'>
+      <text wx:if='{{ActivityPattern==1}}'>￥{{PaymentInfo.ActivityPrice}}</text>
+      <text>{{PaymentInfo.ParticipateCount}}人参加</text>
+    </view>
+  </view>
+  <view class='introduce'>
+    <view class='introducetitle'>活动介绍</view>
+    <view wx:for='{{PaymentInfo.infoArr}}' wx:key='{{index}}' class='activity'>
+      <view wx:if='{{item.text}}' class='activity-text'>
+        <text>{{filter.decodeUrlComponent(item.text)}}</text>
+      </view>
+      <!-- 图片 -->
+      <view wx:if='{{item.image.length > 0}}' class='activity-image-box margin-t-30'>
+        <image wx:for='{{item.image}}'  wx:for-item='items' wx:for-index='indexs' wx:key='{{indexs}}' src='{{srcClockInImage + items}}' bindtap='checkImage' data-index='{{index}}' data-indexs='{{indexs}}' mode='widthFix' class='activity-image'></image>
+      </view>
+      <!-- 音频 -->
+      <music wx:if='{{item.audio}}' path='{{srcClockInAudio + item.audio}}' class='activity-music margin-t-30'></music>
+      <!-- 视频 -->
+      <video wx:if='{{item.video}}' cusom-cache="{{false}}" src='{{srcClockInVideo + item.video}}' class='activity-video margin-t-30'></video>
+    </view>
+  </view>
+  <button class='botton active' wx:if='{{PaymentInfo.ApplyState==0||PaymentInfo.ApplyState==-1}}'>申请审核中</button>
+  <button class='botton' wx:else bindtap='Purchase'>{{ActivityPattern==1?"购买此活动":"申请此活动"}}</button>
+</block>

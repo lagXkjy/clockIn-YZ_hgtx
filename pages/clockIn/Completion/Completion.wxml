@@ -1,0 +1,12 @@
+<!--pages/clockIn/Completion/Completion.wxml-->
+<view class='box'>
+  <view class='img'>
+    <image src='/images/completelogo.png'></image>
+  </view>
+  <view class='text'>考试完成！</view>
+  <view class='Result'>
+    <text>您的得分：{{TotalScore}}分</text>
+    <text>考试时长：{{Duration}}分钟</text>
+  </view>
+  <view class='return' bindtap='return'>回到考试列表</view>
+</view>

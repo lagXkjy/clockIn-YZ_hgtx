@@ -1,0 +1,68 @@
+/* pages/clockIn/myFund/myFund.wxss */
+
+.content {
+  height: 130rpx;
+  border-bottom: 1rpx solid #dedede;
+  background: #fff;
+  padding: 20rpx 35rpx;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 30rpx;
+  color: #303030;
+}
+
+.text {
+  flex: 1;
+}
+
+.Study {
+  width: 545rpx;
+  margin-bottom: 20rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.button {
+  width: 125rpx;
+  text-align: center;
+  font-size: 26rpx;
+  color: #fff;
+  background: #7c99d0;
+  border-radius: 10rpx;
+  padding: 10rpx 0rpx;
+}
+.active{
+  background: #a5a5a5;
+}
+.money {
+  color: #d63a3a;
+  font-weight: bold;
+  margin-right: 25rpx;
+}
+
+.time {
+  font-size: 24rpx;
+  color: #989898;
+}
+
+.no_ranking {
+  padding: 30rpx;
+  font-size: 30rpx;
+  text-align: center;
+}
+
+.no_ranking view {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 47rpx;
+  box-sizing: border-box;
+}
+
+.no_ranking view image {
+  width: 192rpx;
+  height: 215rpx;
+}

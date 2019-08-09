@@ -1,0 +1,42 @@
+<view class='banner' wx:if='{{imgUrls!=""}}'>
+  <swiper class='u-wrp-bnr' indicator-dots='true' autoplay='true' interval='5000' duration='1000' circular='true'>
+    <block wx:for="{{imgs}}" wx:for-index="index" wx:key='index'>
+      <swiper-item>
+        <image src="{{srcBanner + item}}" class='u-img-slide' mode='aspectFill'></image>
+      </swiper-item>
+    </block>
+  </swiper>
+</view>
+<view wx:if='{{isAuthority==0}}' bindtap='createClockIn' class='create'>+ 新建打卡活动</view>
+<view wx:else style='height:30rpx;'></view>
+<view bindtap='toDetails' data-index='{{index}}' class='list' wx:for='{{listData}}' wx:key='Id'>
+  <view class='list-box'>
+    <image mode='aspectFill' class='list-image' src='{{srcClockInImage + item.ActivityHeadImage}}'></image>
+    <view class='list-context'>
+      <view class='list-top'>
+        {{item.IsLearn==1?"[学习基金]":item.ActivityType === 1 ? "[每日打卡]" : "[闯关模式]"}}{{item.ActivityName}}
+        <!-- <text wx:if='{{item.isAdministrator}}' class='list-me'>管理</text> -->
+      </view>
+      <view class='list-bottom'>
+        <view class='list-num people'>
+          <image mode='widthFix' src='/images/people.png'></image>
+          <text>{{item.CYSum}}人已参加</text>
+        </view>
+        <view class='list-num'>
+          <image mode='widthFix' src='/images/clock.png'></image>
+          <text>{{item.DKSum}}次打卡</text>
+        </view>
+      </view>
+    </view>
+    <button wx:if='{{item.isAdministrator}}' class='list-btn list-me'>管理</button>
+    <block wx:else>
+      <block wx:if='{{item.ActivityPattern==0||item.IsParticipate==1}}'>
+        <button wx:if='{{item.IsParticipate}}' class='list-btn'>打卡</button>
+        <button wx:else class='list-btn'>参加</button>
+      </block>
+      <button wx:if='{{item.ActivityPattern==1&&item.IsParticipate==0}}' class='list-btn'>购买</button>
+      <button wx:if='{{item.ActivityPattern==2&&item.IsParticipate==0}}' class='list-btn'>申请</button>
+    </block>
+  </view>
+</view>
+<view wx:if='{{listData.length<=0}}' class='noData'>暂无数据</view>

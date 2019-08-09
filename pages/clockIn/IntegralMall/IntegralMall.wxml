@@ -1,0 +1,85 @@
+<!--pages/clockIn/IntegralMall/IntegralMall.wxml-->
+<view class='box'>
+  <view class='content'>
+    <!-- 礼品 -->
+    <view wx:if='{{activeindex==0}}' class='giftboc'>
+      <view style='height:300rpx;'>
+        <swiper class='u-wrp-bnr' indicator-dots='true' autoplay='true' interval='5000' duration='1000' circular='true'>
+          <block wx:for="{{Banners}}" wx:key='{{index}}' wx:for-index="index">
+            <swiper-item>
+              <image src='{{srcImg+item}}' class='u-img-slide'></image>
+            </swiper-item>
+          </block>
+        </swiper>
+      </view>
+      <view class='gift'>
+        <view class='exchange'>
+          <image src='/images/exchange.png'></image>
+        </view>
+        <view wx:if='{{listData.length>=1}}' class='order-box'>
+          <view class='order' wx:for='{{listData}}' wx:key='{{index}}' data-IcId='{{item.IcId}}' bindtap='Integraldetails'>
+            <view class='imgbox'>
+              <image src='{{srcImg+item.IcMasterMap}}' mode='aspectFit'></image>
+            </view>
+            <view class='text'>
+              <view class='title'>{{item.IcName}}</view>
+              <view>
+                <text class='numjifen'>{{item.IcIntegral}}积分</text>
+                <text class='money'>￥{{item.IcMarketPrice}}</text>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view wx:else class='no_ranking'>
+          <view>
+            <image src='/images/nocommodity.png'></image>
+          </view>
+          暂无商品
+        </view>
+      </view>
+    </view>
+    <!-- 订单 -->
+    <view wx:if='{{activeindex==1}}'>
+      <view class='noorder' wx:if='{{order.length<1}}'>
+        <image src='/images/noorder.png'></image>
+        <view>暂无订单，
+          <text bindtap='seeindex'>去首页看看</text>
+        </view>
+      </view>
+      <block>
+        <view class='bookbox' wx:for='{{order}}' wx:key='{{index}}'>
+          <view class='Ordernumber'>
+            <text>订单号：{{item.IoOrderSN}}</text>
+            <text>{{item.IoOrderState==0?'待发货':item.IoOrderState==1?'待收货':'已完成'}}</text>
+          </view>
+          <view class='center' bindtap='IntegralOrderDetails' data-IoId='{{item.IoId}}'>
+            <view>
+              <image src='{{srcImg+item.IoIcMasterMap}}' mode='aspectFit'></image>
+            </view>
+            <view class='wordtext'>
+              <view>{{item.IoIcName}}</view>
+              <view>{{item.IoIcIntegral}}积分</view>
+            </view>
+          </view>
+          <view class='button'>
+            <view class='active' bindtap='IntegralOrderDetails' data-IoId='{{item.IoId}}' wx:if='{{item.IoOrderState==0}}'>查看详情</view>
+            <view class='border' bindtap='logistics' data-IoId='{{item.IoId}}' wx:if='{{item.IoOrderState==1}}'>查看物流</view>
+            <view class='active' bindtap='confirm' data-IoId='{{item.IoId}}' wx:if='{{item.IoOrderState==1}}'>确认收货</view>
+            <view class='active' bindtap='Repurchase' data-IoId='{{item.IoIcId}}' data-IoIcCommodityType='{{item.IoIcCommodityType}}' wx:if='{{item.IoOrderState==2}}'>再次购买</view>
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+  <!-- footer -->
+  <view class='footer'>
+    <view bindtap='activeclick' data-activeindex='0' class='{{activeindex==0?"bright":""}}'>
+      <image src='{{activeindex==0?"/images/giftbarimg.png":"/images/giftbarimg1.png"}}'></image>
+      <view>礼品</view>
+    </view>
+    <view bindtap='activeclick' data-activeindex='1' class='{{activeindex==1?"bright":""}}'>
+      <image src='{{activeindex==1?"/images/Orderbarimg1.png":"/images/Orderbarimg.png"}}'></image>
+      <view>订单</view>
+    </view>
+  </view>
+</view>

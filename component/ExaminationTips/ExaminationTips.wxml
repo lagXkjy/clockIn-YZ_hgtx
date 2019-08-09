@@ -1,0 +1,8 @@
+<!--component/ExaminationTips/ExaminationTips.wxml-->
+<view class='box'>
+  <view class='title'>考试提示</view>
+  <view class='content'>
+    <text class='content_li'>{{tips}}</text>
+  </view>
+  <view class='start' bindtap='start'>{{show?'开始考试':'知道了'}}</view>
+</view>

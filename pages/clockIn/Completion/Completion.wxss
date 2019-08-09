@@ -1,0 +1,46 @@
+/* pages/clockIn/Completion/Completion.wxss */
+
+.box {
+  padding: 80rpx 20rpx;
+  background: #fff;
+}
+
+.img {
+  width: 142rpx;
+  height: 142rpx;
+  margin: 0 auto;
+}
+
+.img>image {
+  width: 100%;
+  height: 100%;
+}
+
+.text {
+  font-size: 34rpx;
+  font-weight: bold;
+  margin-top: 33rpx;
+  text-align: center;
+  color: #7893c5;
+}
+
+.Result {
+  font-size: 32rpx;
+  text-align: center;
+  margin-top: 30rpx;
+}
+
+.Result>text:nth-child(1) {
+  margin-right: 25rpx;
+}
+
+.return {
+  padding: 20rpx 0;
+  text-align: center;
+  border: 1rpx solid #7893c5;
+  box-sizing: border-box;
+  color: #7893c5;
+  font-size: 37rpx;
+  margin-top: 65rpx;
+  border-radius: 8rpx;
+}
