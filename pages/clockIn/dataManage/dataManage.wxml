@@ -9,8 +9,14 @@
       </view>
     </view>
     <view class='header-right-en'>
+    <view class='block'>
       <view bindtap='toCreateNew' class='header-activity-en'>编辑活动</view>
-      <view bindtap='toMemberManage' class='header-manage'>成员管理</view>
+      <view style="opacity:0" class='header-activity-en'>编辑活动</view>
+    </view>
+      <view class='block'>
+        <view bindtap='toMemberManage' class='header-manage'>成员管理</view>
+        <view bindtap="IntegralSettings" class='header-manage'>积分设置</view>
+      </view>
     </view>
   </view>
 </view>

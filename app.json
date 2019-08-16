@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/login/login",
+    "pages/clockIn/IntegralSettings/IntegralSettings",
     "pages/clockIn/IntegralMall/IntegralMall",
     "pages/clockIn/logistics/logistics",
     "pages/clockIn/IntegralOrderDetails/IntegralOrderDetails",

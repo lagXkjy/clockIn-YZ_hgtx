@@ -1,0 +1,27 @@
+/* pages/clockIn/IntegralSettings/IntegralSettings.wxss */
+.footer{
+  height: 90rpx;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  color: #fff;
+  background: #7c99d0;
+  text-align: center;
+  line-height: 90rpx;
+  font-size: 32rpx;
+  border-radius: 0;
+}
+.inputbox{
+  display: flex;
+  font-size: 26rpx;
+  padding: 0 30rpx;
+  align-items: center;
+  height: 100rpx;
+  background: #fff;
+  border-bottom: 1rpx solid #e0e0e0;
+}
+.inputbox>label{
+  width: 245rpx;
+  color: #9f9f9f;
+}

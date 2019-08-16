@@ -132,6 +132,7 @@ Page({
 
       },
       (res) => {
+        console.log(PatternType)
         if (res.data.res) { //创建成功
           if (+res.data.IsAudit == 0) {
             wx.redirectTo({

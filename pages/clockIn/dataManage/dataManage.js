@@ -51,6 +51,11 @@ Page({
       url: `/pages/clockIn/memberManage/memberManage?ActivityID=${this.data.ActivityID}&ActivityPattern=${this.data.ActivityPattern}`,
     })
   },
+  IntegralSettings(){//点击积分设置
+    wx.navigateTo({
+      url: `/pages/clockIn/IntegralSettings/IntegralSettings?ActivityID=${this.data.ActivityID}`,
+    })
+  },
   changeStart(e) { //开始时间切换
     this.setData({
       startTime: e.detail.value

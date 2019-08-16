@@ -121,6 +121,6 @@ page{
   border-radius: 10rpx;
   flex: 1;
 }
-.footer>view:nth-child(1){
+.margin{
   margin-right: 30rpx;
 }

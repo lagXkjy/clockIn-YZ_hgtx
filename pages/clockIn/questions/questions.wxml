@@ -36,7 +36,7 @@
   </view>
 </view>
 <view class='footer'>
-  <view bindtap='previous' wx:if='{{subscript!=0}}'>上一题</view>
+  <view bindtap='previous' class='{{subscript>0&&subscript!=listData.length-1?"margin":""}}' wx:if='{{subscript!=0}}'>上一题</view>
   <view bindtap='Next' wx:if='{{subscript!=info.Subjects.length-1}}'>下一题</view>
   <view bindtap='Submission' wx:if='{{subscript==info.Subjects.length-1}}'>提交</view>
 </view>

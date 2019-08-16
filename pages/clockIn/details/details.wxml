@@ -103,7 +103,11 @@
   <!-- 排名 -->
   <view hidden='{{tabIndex !== 2}}' class='raking'>
     <view class='raking-prompt'>
-      积分规则：每天打卡+{{rakingInfo.SmallCardRulesMode.SmallCardIntegral}}分，点赞+{{rakingInfo.SmallCardRulesMode.FabulousIntegral}}分[单日上限为{{rakingInfo.SmallCardRulesMode.FabulousUpperLimit}}分]，评论+{{rakingInfo.SmallCardRulesMode.CommentIntegral}}分[单日上限为{{rakingInfo.SmallCardRulesMode.CommentUpperLimit}}分]，分享成功+{{rakingInfo.SmallCardRulesMode.ShareIntegral}}分[单日上限为{{rakingInfo.SmallCardRulesMode.ShareUpperLimit}}分]
+      积分规则：
+      <text wx:if='{{rakingInfo.SmallCardRulesMode.ActivityCardIntegral>0}}'>每天打卡+{{rakingInfo.SmallCardRulesMode.ActivityCardIntegral}}分，</text>
+      <text wx:if='{{rakingInfo.SmallCardRulesMode.ActivityFabulousIntegral>0}}'>点赞+{{rakingInfo.SmallCardRulesMode.ActivityFabulousIntegral}}分[单日上限为{{rakingInfo.SmallCardRulesMode.ActivityFabulousUpperLimit}}分]，</text>
+      <text wx:if='{{rakingInfo.SmallCardRulesMode.ActivityCommentIntegral>0}}'>评论+{{rakingInfo.SmallCardRulesMode.ActivityCommentIntegral}}分[单日上限为{{rakingInfo.SmallCardRulesMode.ActivityCommentUpperLimit}}分]，</text>
+      <text wx:if='{{rakingInfo.SmallCardRulesMode.ActivityShareIntegral>0}}'>分享成功+{{rakingInfo.SmallCardRulesMode.ActivityShareIntegral}}分[单日上限为{{rakingInfo.SmallCardRulesMode.ActivityShareUpperLimit}}分]</text> 
     </view>
     <view wx:if='{{rakingList==""}}' class='no_ranking'>
       <view>

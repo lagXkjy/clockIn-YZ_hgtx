@@ -39,6 +39,10 @@ const config = {
   GetSmallCardActivityInfo: `${host}/LittleProgram/SmallCardActivity/GetSmallCardActivityInfo`,
   //获取打卡活动 用户积分排名
   GetSmallCardUserRanking: `${host}/LittleProgram/SmallCardActivity/GetSmallCardUserRanking`,
+  // 获取活动积分规则信息
+  GetActivityRule: `${host}/LittleProgram/SmallCardActivity/GetActivityRule`,
+  //  修改活动积分规则信息
+  PutActivityRule: `${host}/LittleProgram/SmallCardActivity/PutActivityRule`,
   // 上传图片
   UpLoadImg: `${host}/LittleProgram/InsertSmallCard/UpLoadImg`,
   // 上传活动音频
@@ -341,6 +345,9 @@ module.exports = {
   share(path = '/pages/login/login', success = () => { }, title = '海格通信打卡', imageUrl = null) { //分享
    success()
     return { title, path, imageUrl, success }
+  },
+  trim(data) { //判断字符串是否为空
+    return (str) => data[str].trim().length > 0
   },
 
 }
